@@ -41,12 +41,10 @@ router.delete('/api/form/delete/:id', async (req, res) => {
 router.put('/api/form/edit/:id', async (req, res) => {
   try {
     const formId = req.params.id;
-    const findFormById = await MyForm.findByIdAndUpdate(formId, {
-      name: 'Vilnius',
-      continent: 'Azija',
-      population: '3',
-      type: 'miestas',
-    }).exec();
+    const findFormById = await MyForm.findByIdAndUpdate(
+      formId,
+      req.body
+    ).exec();
     res.json({ success: true, findFormById });
   } catch (err) {
     res.json(err);
