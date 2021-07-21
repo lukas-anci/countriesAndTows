@@ -29,8 +29,10 @@ class App extends Component {
     return (
       <div className="App">
         <Form />
-        {this.state.data.length > 0 &&
-          this.state.data.map((d) => <Card data={d} />)}
+        <div className="card-container">
+          {this.state.data.length > 0 &&
+            this.state.data.map((d) => <Card key={d._id} data={d} />)}
+        </div>
       </div>
     );
   }

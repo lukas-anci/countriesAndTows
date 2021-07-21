@@ -4,3 +4,10 @@ Content-Type: application/json
 
 ### get all
 GET http://localhost:5000/api/form/allForms
+
+### delete
+DELETE   http://localhost:5000/api/form/delete/60f7f5b5f493ca28648c16ed
+
+### update
+
+PUT http://localhost:5000/api/form/edit/60f7fb1ad172100ac4b0f55a
