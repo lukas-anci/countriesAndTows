@@ -1,0 +1,6 @@
+POST http://localhost:5000/api/form/new
+Content-Type: application/json
+
+
+### get all
+GET http://localhost:5000/api/form/allForms
