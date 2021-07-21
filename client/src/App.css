@@ -2,3 +2,14 @@
   box-sizing: border-box;
   margin: 0;
 }
+.App {
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.card {
+  width: 280px;
+  border: 1px solid black;
+  text-align: center;
+}
