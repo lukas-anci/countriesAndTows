@@ -7,6 +7,7 @@ import Footer from './components/footer';
 class App extends Component {
   state = {
     data: [],
+    countryOrTown: 'Country',
   };
 
   getAllData = async () => {
@@ -24,9 +25,47 @@ class App extends Component {
     this.setState({ data: this.getAllData() });
   };
   componentDidMount() {
-    this.getAllData();
+    // this.getCities();
+    // this.getCountries();
+
     this.setState({ data: this.getAllData() });
   }
+
+  getCities = async () => {
+    try {
+      const allCities = await axios.get(
+        'http://localhost:5000/api/form/cities'
+      );
+      console.log('cities', allCities.data.onlyCities);
+      this.setState({ data: allCities.data.onlyCities });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getCountries = async () => {
+    try {
+      const allCountries = await axios.get(
+        'http://localhost:5000/api/form/countries'
+      );
+      console.log('counties', allCountries.data.onlyCountries);
+      this.setState({ data: allCountries.data.onlyCountries });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  handleCountriesOrTowns = (event) => {
+    console.log('you have selected ', event.target.value);
+    this.setState({ countryOrTown: event.target.value });
+    if (event.target.value === 'Country') {
+      this.getCountries();
+    } else if (event.target.value === 'City') {
+      this.getCities();
+    } else {
+      this.getAllData();
+    }
+  };
 
   render() {
     return (
@@ -34,6 +73,17 @@ class App extends Component {
         <div className="App">
           <Form onRefresh={this.refreshData} />
           <div className="cards-title">Card list</div>
+          <div className="filter-container">
+            <span className="filter-title">Choose Cities or Towns</span>
+            <select
+              value={this.state.countryOrTown}
+              onChange={this.handleCountriesOrTowns}
+            >
+              <option value="All">All</option>
+              <option value="Country">Country</option>
+              <option value="City">City</option>
+            </select>
+          </div>
           <div className="card-container">
             {this.state.data.length > 0 &&
               this.state.data.map((d) => (

@@ -50,7 +50,7 @@ class Form extends Component {
             onChange={this.handleChange}
             type="text"
             name="name"
-            id=""
+            // id=""
           />
           <br />
           <label htmlFor="Zemynas">Continent</label>
@@ -60,7 +60,7 @@ class Form extends Component {
             onChange={this.handleChange}
             type="text"
             name="continent"
-            id=""
+            // id=""
           />
           <br />
           <label htmlFor="Gyventoju Skaicius">Population</label>
@@ -70,7 +70,7 @@ class Form extends Component {
             onChange={this.handleChange}
             type="number"
             name="population"
-            id=""
+            // id=""
           />
           <br />
           <label htmlFor="Tipas">Type</label>
@@ -79,7 +79,7 @@ class Form extends Component {
             value={card.type}
             onChange={this.handleChange}
             name="type"
-            id=""
+            // id=""
           >
             <option value="City">City</option>
             <option value="Country">Country</option>

@@ -13,9 +13,7 @@ class Card extends Component {
   handleDelete = async (id) => {
     console.log('delete', id);
     try {
-      const whatToDelete = await axios.delete(
-        `http://localhost:5000/api/form/delete/${id}`
-      );
+      await axios.delete(`http://localhost:5000/api/form/delete/${id}`);
       this.props.onRefresh();
     } catch (err) {
       console.log(err);
@@ -25,7 +23,7 @@ class Card extends Component {
   handleEdit = async (id) => {
     console.log('edit', id);
     this.setState({ edit: !this.state.edit });
-    const whatToUpdate = await axios.put(
+    await axios.put(
       `http://localhost:5000/api/form/edit/${id}`,
       this.state.card
     );

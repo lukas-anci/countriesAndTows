@@ -51,4 +51,32 @@ router.put('/api/form/edit/:id', async (req, res) => {
   }
 });
 
+// get cities
+
+router.get('/api/form/cities', async (req, res) => {
+  try {
+    const allData = await MyForm.find();
+    // console.log(allData);
+    const onlyCities = allData.filter((c) => c.type === 'City');
+    console.log(onlyCities);
+    res.json({ success: true, onlyCities });
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+// get countries
+
+router.get('/api/form/countries', async (req, res) => {
+  try {
+    const allData = await MyForm.find();
+    // console.log(allData);
+    const onlyCountries = allData.filter((c) => c.type === 'Country');
+    console.log(onlyCountries);
+    res.json({ success: true, onlyCountries });
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 module.exports = router;
