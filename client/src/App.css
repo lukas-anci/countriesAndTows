@@ -21,6 +21,8 @@
 }
 .card-container {
   display: flex;
+  justify-content: center;
+
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -131,4 +133,10 @@
 .footer-copyright {
   color: snow;
   text-align: center;
+}
+
+@media screen and (min-width: 320px) {
+  .form-container {
+    min-width: 250px;
+  }
 }
