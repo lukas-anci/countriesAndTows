@@ -6,7 +6,7 @@ class Form extends Component {
       name: '',
       continent: '',
       population: '',
-      type: 'miestas',
+      type: 'City',
     },
   };
   handleSubmit = (e) => {
@@ -33,7 +33,7 @@ class Form extends Component {
         name: '',
         continent: '',
         population: '',
-        type: 'miestas',
+        type: 'City',
       },
     });
   };
@@ -81,8 +81,8 @@ class Form extends Component {
             name="type"
             id=""
           >
-            <option value="miestas">City</option>
-            <option value="salis">Country</option>
+            <option value="City">City</option>
+            <option value="Country">Country</option>
           </select>
           <br />
           <button type="submit">Submit</button>

@@ -33,12 +33,15 @@
   box-shadow: 2px 2px 15px 2px #000000;
 }
 .delete {
-  color: #379683;
+  color: #fc453fa9;
+
   background-color: #3f484e;
   padding: 0.3rem;
   width: 100px;
   margin: 0.5rem 0;
   border-radius: 6px;
+
+  font-weight: bold;
 }
 .edit {
   color: #379683;

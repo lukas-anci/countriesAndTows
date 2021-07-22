@@ -105,18 +105,18 @@ class Card extends Component {
               name="type"
               id=""
             >
-              <option value="miestas">City</option>
-              <option value="salis">Country</option>
+              <option value="City">City</option>
+              <option value="Country">Country</option>
             </select>
           )}
 
           <br />
-          <button onClick={() => this.handleDelete(_id)} className="delete">
-            Delete
-          </button>
-          <br />
           <button onClick={() => this.handleEdit(_id)} className="edit">
             Edit
+          </button>
+          <br />
+          <button onClick={() => this.handleDelete(_id)} className="delete">
+            Delete
           </button>
         </div>
       </div>
