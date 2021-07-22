@@ -7,7 +7,7 @@ class Card extends Component {
       name: '',
       continent: '',
       population: '',
-      type: 'miestas',
+      type: 'City',
     },
   };
   handleDelete = async (id) => {
@@ -50,7 +50,7 @@ class Card extends Component {
     return (
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title">Pavadinimas</h5>
+          <h5 className="card-title">Name</h5>
           {!this.state.edit ? (
             <span>{this.state.card.name ? this.state.card.name : name}</span>
           ) : (
@@ -61,7 +61,7 @@ class Card extends Component {
               type="text"
             />
           )}
-          <h5 className="card-title">Zemynas</h5>
+          <h5 className="card-title">Continent</h5>
           {!this.state.edit ? (
             <span>
               {this.state.card.continent
@@ -77,7 +77,7 @@ class Card extends Component {
             />
           )}
 
-          <h5 className="card-title">Gyventoju skaicius</h5>
+          <h5 className="card-title">Population</h5>
 
           {!this.state.edit ? (
             <span>
@@ -94,7 +94,7 @@ class Card extends Component {
             />
           )}
 
-          <h5 className="card-title">Tipas</h5>
+          <h5 className="card-title">Type</h5>
 
           {!this.state.edit ? (
             <span>{this.state.card.type ? this.state.card.type : type}</span>
@@ -105,8 +105,8 @@ class Card extends Component {
               name="type"
               id=""
             >
-              <option value="miestas">miestas</option>
-              <option value="salis">salis</option>
+              <option value="miestas">City</option>
+              <option value="salis">Country</option>
             </select>
           )}
 
