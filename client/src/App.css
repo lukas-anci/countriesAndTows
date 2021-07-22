@@ -8,6 +8,11 @@
   max-width: 1000px;
   margin: 0 auto;
 }
+.hr {
+  height: 1px;
+  background-color: gray;
+  margin: 1.5em 0;
+}
 /* Card */
 .card {
   width: 280px;
@@ -93,4 +98,14 @@
   width: 100px;
   margin: 0.5rem 0;
   border-radius: 6px;
+}
+
+/* Footer */
+.footer-container {
+  background-color: #3f484e;
+  height: 100px;
+}
+.footer-copyright {
+  color: snow;
+  text-align: center;
 }

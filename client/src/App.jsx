@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Card from './components/card';
 import Form from './components/form';
 import axios from 'axios';
+import Footer from './components/footer';
 class App extends Component {
   state = {
     data: [],
@@ -29,16 +30,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Form onRefresh={this.refreshData} />
-        <div className="cards-title">Card list</div>
-        <div className="card-container">
-          {this.state.data.length > 0 &&
-            this.state.data.map((d) => (
-              <Card onRefresh={this.refreshData} key={d._id} data={d} />
-            ))}
+      <>
+        <div className="App">
+          <Form onRefresh={this.refreshData} />
+          <div className="cards-title">Card list</div>
+          <div className="card-container">
+            {this.state.data.length > 0 &&
+              this.state.data.map((d) => (
+                <Card onRefresh={this.refreshData} key={d._id} data={d} />
+              ))}
+          </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 }
