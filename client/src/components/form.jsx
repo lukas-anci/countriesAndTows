@@ -12,6 +12,7 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleRequest();
+    this.resetForm();
   };
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,15 +23,27 @@ class Form extends Component {
       'http://localhost:5000/api/form/new',
       this.state.card
     );
+    this.props.onRefresh();
     console.log(data.data.result);
+  };
+
+  resetForm = () => {
+    this.setState({
+      card: {
+        name: '',
+        continent: '',
+        population: '',
+        type: 'miestas',
+      },
+    });
   };
 
   render() {
     const { card } = this.state;
     return (
-      <div>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <label htmlFor="Pavadinimas">Pavadinimas</label>
+      <div className="form-container">
+        <form className="form" autoComplete="off" onSubmit={this.handleSubmit}>
+          <label htmlFor="Pavadinimas">Name</label>
           <br />
           <input
             value={card.name}
@@ -40,7 +53,7 @@ class Form extends Component {
             id=""
           />
           <br />
-          <label htmlFor="Zemynas">Zemynas</label>
+          <label htmlFor="Zemynas">Continent</label>
           <br />
           <input
             value={card.continent}
@@ -50,7 +63,7 @@ class Form extends Component {
             id=""
           />
           <br />
-          <label htmlFor="Gyventoju Skaicius">Gyventoju Skaicius</label>
+          <label htmlFor="Gyventoju Skaicius">Population</label>
           <br />
           <input
             value={card.population}
@@ -60,7 +73,7 @@ class Form extends Component {
             id=""
           />
           <br />
-          <label htmlFor="Tipas">Tipas</label>
+          <label htmlFor="Tipas">Type</label>
           <br />
           <select
             value={card.type}
@@ -68,8 +81,8 @@ class Form extends Component {
             name="type"
             id=""
           >
-            <option value="miestas">miestas</option>
-            <option value="salis">salis</option>
+            <option value="miestas">City</option>
+            <option value="salis">Country</option>
           </select>
           <br />
           <button type="submit">Submit</button>

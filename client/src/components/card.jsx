@@ -10,12 +10,13 @@ class Card extends Component {
       type: 'miestas',
     },
   };
-  handleDelete = (id) => {
+  handleDelete = async (id) => {
     console.log('delete', id);
     try {
-      const whatToDelete = axios.delete(
+      const whatToDelete = await axios.delete(
         `http://localhost:5000/api/form/delete/${id}`
       );
+      this.props.onRefresh();
     } catch (err) {
       console.log(err);
     }
@@ -28,6 +29,7 @@ class Card extends Component {
       `http://localhost:5000/api/form/edit/${id}`,
       this.state.card
     );
+    // this.props.onRefresh();
   };
   handleName = (event) => {
     const { name, value } = event.target;

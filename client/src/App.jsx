@@ -19,7 +19,9 @@ class App extends Component {
       console.log(err);
     }
   };
-
+  refreshData = () => {
+    this.setState({ data: this.getAllData() });
+  };
   componentDidMount() {
     this.getAllData();
     this.setState({ data: this.getAllData() });
@@ -28,10 +30,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form />
+        <Form onRefresh={this.refreshData} />
         <div className="card-container">
           {this.state.data.length > 0 &&
-            this.state.data.map((d) => <Card key={d._id} data={d} />)}
+            this.state.data.map((d) => (
+              <Card onRefresh={this.refreshData} key={d._id} data={d} />
+            ))}
         </div>
       </div>
     );
