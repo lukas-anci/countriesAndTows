@@ -27,7 +27,6 @@ class Card extends Component {
       `http://localhost:5000/api/form/edit/${id}`,
       this.state.card
     );
-    // this.props.onRefresh();
   };
   handleName = (event) => {
     const { name, value } = event.target;

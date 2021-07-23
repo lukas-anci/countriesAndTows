@@ -13,6 +13,32 @@
   background-color: gray;
   margin: 1.5em 0;
 }
+.d-flex {
+  display: flex;
+}
+/* Navbar */
+.navbar {
+  justify-content: space-between;
+  background-color: #3f484e;
+
+  color: snow;
+}
+.link {
+  text-decoration: none;
+  color: white;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.menu {
+}
+
+.logo i {
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
 /* Card */
 .card {
   width: 280px;
@@ -41,7 +67,7 @@
 }
 .delete {
   color: #fc453fa9;
-
+  cursor: pointer;
   background-color: #3f484e;
   padding: 0.3rem;
   width: 100px;
@@ -57,6 +83,7 @@
   width: 100px;
   margin: 0.5rem 0;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .cards-title {
@@ -100,6 +127,7 @@
   width: 100px;
   margin: 0.5rem 0;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 /* Filter */

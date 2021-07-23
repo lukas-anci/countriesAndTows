@@ -4,6 +4,9 @@ import Card from './components/card';
 import Form from './components/form';
 import axios from 'axios';
 import Footer from './components/footer';
+import Navbar from './components/navbar';
+import { Route, Switch } from 'react-router';
+import MainPage from './components/mainPage';
 class App extends Component {
   state = {
     data: [],
@@ -69,10 +72,32 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div>
+        <Navbar />
+
         <div className="App">
-          <Form onRefresh={this.refreshData} />
-          <div className="cards-title">Card list</div>
+          <Switch>
+            <Route
+              path="/create"
+              render={(props) => (
+                <Form onRefresh={this.refreshData} {...props} />
+              )}
+            />
+            <Route
+              path="/"
+              render={(props) => (
+                <MainPage
+                  onRefresh={this.refreshData}
+                  passHandleCountriesOrTowns={this.handleCountriesOrTowns}
+                  passCountryOrTown={this.state.countryOrTown}
+                  passData={this.state.data}
+                  {...props}
+                />
+              )}
+            />
+          </Switch>
+          {/* <Form onRefresh={this.refreshData} /> */}
+          {/* <div className="cards-title">Card list</div>
           <div className="filter-container">
             <span className="filter-title">Choose Cities or Towns</span>
             <select
@@ -89,10 +114,10 @@ class App extends Component {
               this.state.data.map((d) => (
                 <Card onRefresh={this.refreshData} key={d._id} data={d} />
               ))}
-          </div>
+          </div> */}
         </div>
         <Footer />
-      </>
+      </div>
     );
   }
 }
